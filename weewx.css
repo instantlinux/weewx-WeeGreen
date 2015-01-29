@@ -1,0 +1,400 @@
+/* 
+ * CSS for the WeeGreen skin
+ * $Id: weewx.css,v 1.11 2015/01/28 05:40:07 root Exp $
+ */
+  
+/* Global */
+
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    background-color: #f2f2f7;
+    background-image: url('backgrounds/band.gif');
+    background-repeat: repeat;
+    background-attachment: scroll;
+}	
+
+#container {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/*
+ * This is the big header at the top of the page
+ */
+#masthead {
+    margin: 1% 1% 0 1%;
+    padding: 5px;
+    text-align: center;
+    text-shadow:0px 0px 10px #fff;
+    border-top: 1px solid #dcdcdc;
+    border-right: 1px solid #a9a9a9;
+    border-bottom: 1px solid #808080;
+    border-left: 1px solid #a9a9a9;
+    background-color: #fafaff;
+    background-image: url('backgrounds/castro1.png');
+    box-shadow: 5px 5px 3px #888888;
+    border-radius: 6px;
+    font-size: 12pt;
+}
+
+#masthead h1 {
+    color: #4a374a;
+}
+#masthead h2 {
+    color: #4a374a;
+}
+#masthead h3 {
+    color: #5f8ea9;
+}
+
+/*
+ * This holds the statistics (daily high/low, etc.) on the left: 
+ */
+#stats_group {
+    width: 40%;
+    min-height: 500px;
+    margin: 1%;
+    padding: 5px;
+    float: left;
+	box-shadow: 5px 5px 3px #888888;
+	border:1px solid #3f7f00;
+	
+	-moz-border-radius-bottomleft:6px;
+	-webkit-border-bottom-left-radius:6px;
+	border-bottom-left-radius:6px;
+	
+	-moz-border-radius-bottomright:6px;
+	-webkit-border-bottom-right-radius:6px;
+	border-bottom-right-radius:6px;
+	
+	-moz-border-radius-topright:6px;
+	-webkit-border-top-right-radius:6px;
+	border-top-right-radius:6px;
+	
+	-moz-border-radius-topleft:6px;
+	-webkit-border-top-left-radius:6px;
+	border-top-left-radius:6px;
+}
+
+.stats table {
+    border: thin solid #000000;
+    width: 100%;
+    border-collapse: collapse;
+        border-spacing: 0;
+	margin:0px;padding:0px;
+}
+.stats tr:last-child td:last-child {
+	-moz-border-radius-bottomright:4px;
+	-webkit-border-bottom-right-radius:4px;
+	border-bottom-right-radius:4px;
+}
+.stats table tr:first-child td:first-child {
+	-moz-border-radius-topleft:4px;
+	-webkit-border-top-left-radius:4px;
+	border-top-left-radius:4px;
+}
+.stats table tr:first-child td:last-child {
+	-moz-border-radius-topright:4px;
+	-webkit-border-top-right-radius:4px;
+	border-top-right-radius:4px;
+}
+.stats tr:last-child td:first-child {
+	-moz-border-radius-bottomleft:4px;
+	-webkit-border-bottom-left-radius:4px;
+	border-bottom-left-radius:4px;
+}
+.stats tr:hover td {
+	
+}
+.stats tr:nth-child(odd) { background-color:#d4ffaa; }
+.stats tr:nth-child(even) { background-color:#ffffff; }
+.stats td {
+	vertical-align:middle;
+	
+	
+	border:1px solid #3f7f00;
+	border-width:0px 1px 1px 0px;
+	text-align:left;
+	padding:4px;
+	font-size:14px;
+	font-family:Arial;
+	font-weight:normal;
+	color:#000000;
+}
+.stats tr:last-child td {
+	border-width:0px 1px 0px 0px;
+}
+.stats tr td:last-child {
+	border-width:0px 0px 1px 0px;
+}
+.stats tr:last-child td:last-child {
+	border-width:0px 0px 0px 0px;
+}
+.stats tr:first-child td {
+		background:-o-linear-gradient(bottom, #5fbf00 5%, #3f7f00 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #5fbf00), color-stop(1, #3f7f00) );
+	background:-moz-linear-gradient( center top, #5fbf00 5%, #3f7f00 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#5fbf00", endColorstr="#3f7f00");	background: -o-linear-gradient(top,#5fbf00,3f7f00);
+
+	background-color:#5fbf00;
+	border:0px solid #3f7f00;
+	text-align:center;
+	border-width:0px 0px 1px 1px;
+	font-size:14px;
+	font-family:Arial;
+	font-weight:bold;
+	color:#ffffff;
+}
+.stats tr:first-child:hover td {
+	background:-o-linear-gradient(bottom, #5fbf00 5%, #3f7f00 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #5fbf00), color-stop(1, #3f7f00) );
+	background:-moz-linear-gradient( center top, #5fbf00 5%, #3f7f00 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#5fbf00", endColorstr="#3f7f00");	background: -o-linear-gradient(top,#5fbf00,3f7f00);
+
+	background-color:#5fbf00;
+}
+.stats tr:first-child td:first-child {
+	border-width:0px 0px 1px 0px;
+}
+.stats tr:first-child td:last-child {
+	border-width:0px 0px 1px 1px;
+}
+.stats td:first-child {
+	color:green
+}
+.stats tr:nth-child td:nth-child {
+	color:red
+}
+.legend {
+}
+.legend tr {
+  vertical-align: top;
+}
+.summary {
+}
+.summary tr {
+  vertical-align: top;
+}
+.period {
+}
+td.disclosure {
+  padding: 0px;
+  border-right: 0px;
+}
+td.col-outlook {
+  text-align: center;
+}
+td.col-date {
+  padding: 0px;
+  color:green
+}
+td.col-temp {
+}
+td.col-dewpoint {
+}
+td.col-humidity {
+}
+td.col-wind {
+  text-align: center;
+}
+td.col-pop {
+  text-align: center;
+}
+td.col-precip {
+}
+td.col-obvis {
+}
+td.col-tides {
+}
+td.col-sun {
+}
+td.col-moon {
+  text-align: center;
+}
+td.col-moonphase {
+}
+.units {
+  color: #aaaaaa;
+}
+.day {
+  font-size: 120%;
+}
+.hour {
+  font-size: 80%;
+}
+.date {
+  font-size: 80%;
+}
+.temphi {
+  color: #bb0000;
+}
+.templo {
+  color: #0000dd;
+}
+.windgust {
+  color: #aaaaaa;
+}
+.winddir {
+  color: #aaaaaa;
+}
+.winddir-img {
+}
+.outlook-img {
+  width: 48px;
+}
+.legend-img {
+}
+.pop-img {
+}
+.precip-img {
+}
+.obvis-img {
+}
+.sources p {
+  font-size: 8pt;
+  font-style: italic;
+  color: #aaaaaa;
+}
+
+/*
+ * This holds the "About", "Almanac", and plots on the right
+ */
+#content {
+    width: 52%;
+    min-height: 500px;
+    margin: 1%;
+    padding: 5px;
+    float: right;
+    border-top: 1px solid #dcdcdc;
+    border-right: 1px solid #a9a9a9;
+    border-bottom: 1px solid #808080;
+    border-left: 1px solid #a9a9a9;
+    background-color: #fafaff;
+    text-align: center;
+	box-shadow: 5px 5px 3px #888888;
+	border:1px solid #3f7f00;
+	
+	-moz-border-radius-bottomleft:6px;
+	-webkit-border-bottom-left-radius:6px;
+	border-bottom-left-radius:6px;
+	
+	-moz-border-radius-bottomright:6px;
+	-webkit-border-bottom-right-radius:6px;
+	border-bottom-right-radius:6px;
+	
+	-moz-border-radius-topright:6px;
+	-webkit-border-top-right-radius:6px;
+	border-top-right-radius:6px;
+	
+	-moz-border-radius-topleft:6px;
+	-webkit-border-top-left-radius:6px;
+	border-top-left-radius:6px;
+}
+
+#content .header {
+    font-size: 14pt;
+    font-weight: bolder;
+    color: #3d6c87;
+    margin-bottom: 10px;
+}
+
+
+#content .caption {
+    font-weight: bold;
+    color: #3d6c87;
+}
+
+#content table {
+    text-align: center;
+    width: 100%;
+}
+
+#content td {
+}
+
+#content .label {
+    text-align: right;
+    font-style: italic;
+}
+
+#content .data {
+    text-align: left;
+}
+
+#about, #almanac {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+
+.celestial_group {
+}
+
+.celestial_body {
+    width: 48%;
+    vertical-align: top;
+    display:inline-block;
+}
+
+#plots {
+    width: 96%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+    
+#plots img {
+    border: thin solid #3d6c87;
+    margin: 3px;
+    padding: 3px;
+}
+
+#radar_img {
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 3px;
+    padding: 3px;
+}
+
+#radar_img img {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    margin: 3px;
+    padding: 3px;
+}
+
+#radar_img p {
+    width: 90%;
+    font-style: italic;
+    font-size: smaller;
+    text-align: center;
+    margin-top: 0;
+}
+
+/*
+ * Navigation bar
+ */
+#navbar {
+    margin: 0 1% 1% 1%;
+    padding: 5px;
+    text-align: center;
+    clear: both;
+    border-top: 1px solid #dcdcdc;
+    border-right: 1px solid #a9a9a9;
+    border-bottom: 1px solid #808080;
+    border-left: 1px solid #a9a9a9;
+    background-color: #fafaff;
+}
+
+/*************** Global Styles ***************/
+
+h2, h3, h4, h5, h6 {
+    color: #3d6c87;
+}

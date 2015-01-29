@@ -1,0 +1,57 @@
+#errorCatcher Echo
+## $Id: month.html.tmpl,v 1.6 2015/01/26 21:45:10 root Exp $
+#set global $pageTitle = "Monthly Weather Summary"
+#include "preamble.inc"
+
+  <body>
+    <div id="container">
+      #include "masthead.inc"
+
+      <div id="stats_group">
+
+        #set global $period1 = $month
+        #set global $period2 = $year
+        #set global $period1Name = "Past Month"
+        #set global $period2Name = "Past Year"
+        #include "chart.inc"
+
+      </div> <!-- End class "stats_group" -->
+
+      <div id="content">
+        
+        <div class="header">
+          <h3>30-Day Statistics and Plots</h3>
+        </div>
+        <div id="plots">
+          <img src="monthtempdew.png" alt="temperatures" />
+          <img src="monthtempchill.png" alt="heatchill" />
+          <img src="monthrain.png" alt="rain" />
+          <img src="monthwind.png" alt="wind" />
+          <img src="monthbarometer.png" alt="barometer"/>
+          <img src="monthwinddir.png" alt="Hi Wind" />
+          <img src="monthinside.png" alt="Inside" />
+          <img src="monthwindvec.png" alt="Wind Vector" />
+          #if $Extras.has_key('optionalAccessories') and $period2.UV.has_data
+          <img src="monthuv.png" alt="UV Index" />
+          #end if
+          #if $Extras.has_key('optionalAccessories') and $period2.radiation.has_data
+          <img src="monthradiation.png" alt="Radiation" />
+          #end if
+          #if $Extras.has_key('optionalAccessories') and $period2.UV.has_data
+          <img src="monthuv.png" alt="UV Index" />
+          #end if
+          #if $period2.rxCheckPercent.has_data
+          <img src="monthrx.png" alt="month rx percent"/>
+          #end if
+          #if $period2.extraTemp1.has_data
+          <img src="monthpond.png" alt="Pond Temperatures" />
+          #end if
+        </div>
+      </div> <!-- End id "content" -->
+
+    </div> <!-- End id "container" -->
+
+    #include "analytics.inc"
+
+  </body>
+</html>

@@ -1,0 +1,57 @@
+#errorCatcher Echo
+## $Id: week.html.tmpl,v 1.5 2015/01/26 21:46:16 root Exp $
+#set global $pageTitle = "Weekly Weather Summary"
+#include "preamble.inc"
+
+  <body>
+    <div id="container">
+      #include "masthead.inc"
+
+      <div id="stats_group">
+
+        #set global $period1 = $week
+        #set global $period2 = $month
+        #set global $period1Name = "Past Week"
+        #set global $period2Name = "Past Month"
+        #include "chart.inc"
+
+      </div> <!-- End class "stats_group" -->
+
+      <div id="content">
+        
+        <div class="header">
+          <h3>7-Day Statistics and Plots</h3>
+        </div>
+        <div id="plots">
+          <img src="weektempdew.png" alt="temperatures" />
+          <img src="weektempchill.png" alt="heatchill" />
+          <img src="weekrain.png" alt="rain" />
+          <img src="weekwind.png" alt="wind" />
+          <img src="weekbarometer.png" alt="barometer"/>
+          <img src="weekwinddir.png" alt="Hi Wind" />
+          <img src="weekinside.png" alt="Inside" />
+          <img src="weekwindvec.png" alt="Wind Vector" />
+          #if $Extras.has_key('optionalAccessories') and $period2.UV.has_data
+          <img src="weekuv.png" alt="UV index" />
+          #end if
+          #if $Extras.has_key('optionalAccessories') and $period2.radiation.has_data
+          <img src="weekradiation.png" alt="Radiation" />
+          #end if
+          #if $Extras.has_key('optionalAccessories') and $period2.UV.has_data
+          <img src="weekuv.png" alt="UV Index" />
+          #end if
+          #if $period2.rxCheckPercent.has_data
+          <img src="weekrx.png" alt="week rx percent"/>
+          #end if
+          #if $period2.extraTemp1.has_data
+          <img src="weekpond.png" alt="Pond Temperatures" />
+          #end if
+        </div>
+      </div> <!-- End id "content" -->
+
+    </div> <!-- End id "container" -->
+
+    #include "analytics.inc"
+
+  </body>
+</html>

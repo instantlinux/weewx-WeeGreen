@@ -1,0 +1,94 @@
+#errorCatcher Echo
+## $Id: about.html.tmpl,v 1.5 2015/01/26 21:40:47 root Exp root $
+##
+#set global $pageTitle = "Current Weather Conditions"
+#include "preamble.inc"
+
+  <body>
+    <div id="container">
+      #include "masthead.inc"
+
+      <div id="stats_group">
+
+        #include "current.inc"
+
+        <p>&nbsp;</p>
+
+        #set global $period1 = $yesterday
+        #set global $period2 = $day
+        #set global $period1Name = "Yesterday"
+        #set global $period2Name = "Today"
+        #include "chart.inc"
+
+        #if $Extras.has_key('radar_img')
+        <div id="radar_img">
+          #if $Extras.has_key('radar_url')
+          <a  href="$Extras.radar_url">
+          #end if
+            <img src="$Extras.radar_img" alt="Radar" />
+          #if $Extras.has_key('radar_url')
+          </a>
+          <p>Click image for expanded radar loop</p>
+          #end if
+        </div>
+        #end if
+
+        #include "buttonbar.inc"
+      </div> <!--End class "stats_group" -->
+
+      <div id="content">
+        <div id="about">
+          <div class="header">
+            About this weather station:
+          </div>
+          <table>
+            <tr>
+              <td class="label">Location:</td>
+              <td class="data">$station.latitude[0]&deg; $station.latitude[1]' $station.latitude[2],
+              $station.longitude[0]&deg; $station.longitude[1]' $station.longitude[2]</td>
+            </tr>
+            <tr>
+              <td class="label">Elevation:</td>
+              <td class="data">$station.altitude</td>
+            </tr>
+          </table>
+          <p>
+            Weather collected by $station.hardware 
+            #if $Extras.has_key('modelNumber')
+              model $Extras.modelNumber
+            #end if
+            #if $Extras.has_key('modelFeatures')
+              with $Extras.modelFeatures,
+            #end if
+            #if $Extras.has_key('computerType')
+              linked to a $Extras.computerType running
+            #else
+              via
+            #end if
+            <a href="http://www.weewx.com">weewx</a><br/>
+            Personal Weather Station operated by $Extras.siteOperator
+          </p>
+          <p>Weewx uptime:  $station.uptime<br/>
+             Server uptime: $station.os_uptime</p>
+            <br/>
+            #if $varExists('forecast')
+              Forecast data provided by <br/>
+              #if $Extras.has_key('wundergroundLink')
+                <a href="$Extras.wundergroundLink" target="_blank">
+              #else
+                <a href="http://www.wunderground.com/weatherstation/overview.asp" target="_blank">
+              #end if
+              <img src="backgrounds/wundergroundLogo_4c_horz.jpg"></a>
+            #end if
+          </p>
+          <p>
+            <i>WeeGreen skin authored by Rich Braun, Copyright 2015</i>
+        </div> <!-- End id "about" -->
+        
+      </div>
+    </div>
+
+    #include "analytics.inc"
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+#errorCatcher Echo
+## $Id: index.html.tmpl,v 1.10 2015/01/26 21:44:06 root Exp $
+##
+#set global $pageTitle = "Current Weather Conditions"
+#include "preamble.inc"
+
+  <body>
+    <div id="container">
+      #include "masthead.inc"
+
+      <div id="stats_group">
+
+        #include "current.inc"
+
+        <p>&nbsp;</p>
+
+        #set global $period1 = $yesterday
+        #set global $period2 = $day
+        #set global $period1Name = "Yesterday"
+        #set global $period2Name = "Today"
+        #include "chart.inc"
+
+        #if $Extras.has_key('radar_img')
+        <div id="radar_img">
+          #if $Extras.has_key('radar_url')
+          <a  href="$Extras.radar_url">
+          #end if
+            <img src="$Extras.radar_img" alt="Radar" />
+          #if $Extras.has_key('radar_url')
+          </a>
+          <p>Click image for expanded radar loop</p>
+          #end if
+        </div>
+        #end if
+
+        #include "buttonbar.inc"
+      </div> <!--End class "stats_group" -->
+
+      <div id="content">
+        <div class="header">
+          <h3>24-Hour Plots</h3>
+        </div>
+
+        
+        <div id="plots">
+          <img src="daytempdew.png"   alt="temperatures" />
+          <img src="daytempchill.png" alt="heatchill" />
+          <img src="dayrain.png"      alt="rain" />
+          <img src="daywind.png"      alt="wind" />
+          <img src="daybarometer.png" alt="barometer"/>
+          <img src="daywinddir.png"   alt="Hi Wind" />
+          <img src="dayinside.png"    alt="Inside" />
+          <img src="daywindvec.png"   alt="Wind Vector" />
+          #if $Extras.has_key('optionalAccessories') and $period2.radiation.has_data
+          <img src="dayradiation.png" alt="Radiation" />
+          #end if
+          #if $Extras.has_key('optionalAccessories') and $period2.UV.has_data
+          <img src="dayuv.png" alt="UV Index" />
+          #end if
+          #if $day.extraTemp1.has_data
+          <img src="daypond.png"      alt="Pond Temperatures" />
+          #end if
+        </div> <!-- End id "plots" -->
+      </div> <!-- End id "content" -->
+    </div>
+
+    #include "analytics.inc"
+</body>
+
+</html>

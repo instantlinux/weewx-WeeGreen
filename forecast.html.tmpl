@@ -1,0 +1,52 @@
+#errorCatcher Echo
+## $Id: forecast.html.tmpl,v 1.4 2015/01/27 21:38:08 root Exp $
+##
+#set global $pageTitle = "Current Weather Forecast"
+#include "preamble.inc"
+
+  <body>
+    <div id="container">
+      #include "masthead.inc"
+
+      <div id="stats_group">
+
+        #include "current.inc"
+
+        <p>&nbsp;</p>
+
+        #set global $period1 = $yesterday
+        #set global $period2 = $day
+        #set global $period1Name = "Yesterday"
+        #set global $period2Name = "Today"
+        #include "chart.inc"
+
+        #if $Extras.has_key('radar_img')
+        <div id="radar_img">
+          #if $Extras.has_key('radar_url')
+          <a  href="$Extras.radar_url">
+          #end if
+            <img src="$Extras.radar_img" alt="Radar" />
+          #if $Extras.has_key('radar_url')
+          </a>
+          <p>Click image for expanded radar loop</p>
+          #end if
+        </div>
+        #end if
+
+        #include "buttonbar.inc"
+      </div> <!--End class "stats_group" -->
+
+      <div id="content">
+        <div id="forecast">
+          #if $varExists('forecast')
+            #include "forecast_table.inc"
+          #else
+            Forecast search_list_extensions is not configured for this page
+          #end if
+      </div>
+    </div>
+
+    #include "analytics.inc"
+</body>
+
+</html>
