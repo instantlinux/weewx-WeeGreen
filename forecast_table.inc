@@ -161,12 +161,13 @@ function toggle(control, id) {
     #set $lastday = $thisday
     #set $summary = $forecast.weather_summary($forecast_source, $period.event_ts.raw, periods=$periods)
     #set $wloc = $summary.location
+    #set $event_hour = int($period.event_ts.format('%H'))
 
   <div id='$smryid' class='summary'>
       <tr>
 #if $show_hourly
         <td class='disclosure'>
-          #if $num_hours > 0
+          #if $num_hours > 0 and $event_hour < 22
           <img src='$icondir/triangle-right.png' onclick="toggle(this, '$smryid')" />
           #end if
         </td>
@@ -282,7 +283,6 @@ function toggle(control, id) {
 
   #end if ## lastday != thisday
 
-#set $event_hour = int($period.event_ts.format('%H'))
 #if $show_hourly and $num_hours > 0 and ($current_hour + $num_hours < 23 or $num_hours < $hour_periods or $event_hour % 2 == 0)
   #set $ftime = $period.event_ts.format('%H:%M')
   #set $num_hours = $num_hours - 1

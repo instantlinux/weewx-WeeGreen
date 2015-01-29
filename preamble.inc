@@ -9,6 +9,10 @@
     #end if
     <title>$station.location $pageTitle</title>
     <link rel="stylesheet" type="text/css" href="weewx.css"/>
+    <link rel="stylesheet" href="gh-fork-ribbon.css">
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" href="gh-fork-ribbon.ie.css">
+    <![endif]-->
     <link rel="icon" type="image/png" href="favicon.ico" />
     <script type="text/javascript">
       var refreshInt = 300;

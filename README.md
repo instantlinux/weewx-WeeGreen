@@ -3,10 +3,15 @@ UI skin for weewx, the weather-reporting engine
 
 ## Installation
 
-Install weewx
-Install forecast skin (this skin depends on its image files)
-Customize weewx.conf and skin.conf in this directory
-Turn off forecast skin in weewx.conf
+* Install weewx
+* Install forecast skin (this skin depends on its image files and weewx.conf updates)
+* Customize weewx.conf 
+  * Define your [Station]
+  * Register at Wunderground.com, add your api_key to [Forecast][[WU]] and your
+    credentials to [StdRESTful][[Wunderground]] - note that rapidfire should be True
+  * Specify this skin in [StdReport][[StandardReport]], and comment out forecast
+    skin if it got added in previous step
+* Customize skin.conf in this directory
 
 ## Author
 
