@@ -1,11 +1,11 @@
 #errorCatcher Echo
 ## $Id: month.html.tmpl,v 1.6 2015/01/26 21:45:10 root Exp $
 #set global $pageTitle = "Monthly Weather Summary"
-#include "preamble.inc"
+#include "include/preamble.inc"
 
   <body>
     <div id="container">
-      #include "masthead.inc"
+      #include "include/masthead.inc"
 
       <div id="stats_group">
 
@@ -13,7 +13,7 @@
         #set global $period2 = $year
         #set global $period1Name = "Past Month"
         #set global $period2Name = "Past Year"
-        #include "chart.inc"
+        #include "include/chart.inc"
 
       </div> <!-- End class "stats_group" -->
 
@@ -51,7 +51,7 @@
 
     </div> <!-- End id "container" -->
 
-    #include "analytics.inc"
+    #include "include/analytics.inc"
 
   </body>
 </html>

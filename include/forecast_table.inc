@@ -132,6 +132,10 @@ function toggle(control, id) {
 #set $periods = $forecast.weather_periods($forecast_source, max_events=$num_periods)
 #set $current_hour = int($current.dateTime.format("%H"))
 #set $num_hours = $hour_periods
+#set $skip_first = 0
+#if $current_hour + $hour_periods > 23 and $current_hour % 2 == 0
+  set $skip_first = 1
+#end if
 
 #for $period in $periods
   #set $thisday = $period.event_ts.format('%d')
@@ -167,7 +171,7 @@ function toggle(control, id) {
       <tr>
 #if $show_hourly
         <td class='disclosure'>
-          #if $num_hours > 0 and $event_hour < 22
+          #if $num_hours > 0
           <img src='$icondir/triangle-right.png' onclick="toggle(this, '$smryid')" />
           #end if
         </td>
@@ -283,7 +287,10 @@ function toggle(control, id) {
 
   #end if ## lastday != thisday
 
-#if $show_hourly and $num_hours > 0 and ($current_hour + $num_hours < 23 or $num_hours < $hour_periods or $event_hour % 2 == 0)
+#if $show_hourly and $num_hours > 0
+ #if $skip_first
+  #set $skip_first = 0
+ #else
   #set $ftime = $period.event_ts.format('%H:%M')
   #set $num_hours = $num_hours - 1
       <tr class='period $hourid' style='display:none'>
@@ -392,6 +399,7 @@ function toggle(control, id) {
         </td>
 #end if
       </tr>
+ #end if  ## skip_first
 #end if  ## show_hourly
 #end for ## period in periods
 

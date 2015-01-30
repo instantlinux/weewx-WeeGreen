@@ -2,15 +2,15 @@
 ## $Id: about.html.tmpl,v 1.5 2015/01/26 21:40:47 root Exp root $
 ##
 #set global $pageTitle = "Current Weather Conditions"
-#include "preamble.inc"
+#include "include/preamble.inc"
 
   <body>
     <div id="container">
-      #include "masthead.inc"
+      #include "include/masthead.inc"
 
       <div id="stats_group">
 
-        #include "current.inc"
+        #include "include/current.inc"
 
         <p>&nbsp;</p>
 
@@ -18,7 +18,7 @@
         #set global $period2 = $day
         #set global $period1Name = "Yesterday"
         #set global $period2Name = "Today"
-        #include "chart.inc"
+        #include "include/chart.inc"
 
         #if $Extras.has_key('radar_img')
         <div id="radar_img">
@@ -33,7 +33,7 @@
         </div>
         #end if
 
-        #include "buttonbar.inc"
+        #include "include/buttonbar.inc"
       </div> <!--End class "stats_group" -->
 
       <div id="content">
@@ -92,7 +92,7 @@
       </div>
     </div>
 
-    #include "analytics.inc"
+    #include "include/analytics.inc"
 </body>
 
 </html>
