@@ -134,7 +134,7 @@ function toggle(control, id) {
 #set $num_hours = $hour_periods
 #set $skip_first = 0
 #if $current_hour + $hour_periods > 23 and $current_hour % 2 == 0
-  set $skip_first = 1
+  #set $skip_first = 1
 #end if
 
 #for $period in $periods

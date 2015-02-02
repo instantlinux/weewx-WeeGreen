@@ -21,5 +21,8 @@
         #if $Extras.has_key('wundergroundLink')
           <input type="button" value=" Wunderground " onclick="window.open('$Extras.wundergroundLink', '_blank')" />
         #end if
+        #if $Extras.has_key('webcamLink')
+          <input type="button" value="  Webcam  " onclick="window.open('$Extras.webcamLink', '_blank')" />
+        #end if
         <input type="button" value="   About   " onclick="openURL('about.html')" />
 </div>
