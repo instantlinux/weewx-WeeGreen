@@ -51,8 +51,11 @@
           <img src="daywinddir.png"   alt="Hi Wind" />
           <img src="dayinside.png"    alt="Inside" />
           <img src="daywindvec.png"   alt="Wind Vector" />
+          #if $period2.pm2_5.has_data
+          <img src="dayaqi.png"       alt="Air Quality" />
+          #end if
           #if $Extras.has_key('optionalAccessories') and $period2.radiation.has_data
-          <img src="dayradiation.png" alt="Radiation" />
+          <img src="dayradiation.png" alt="Solar Radiation" />
           #end if
           #if $Extras.has_key('optionalAccessories') and $period2.UV.has_data
           <img src="dayuv.png" alt="UV Index" />

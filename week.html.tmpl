@@ -31,6 +31,9 @@
           <img src="weekwinddir.png" alt="Hi Wind" />
           <img src="weekinside.png" alt="Inside" />
           <img src="weekwindvec.png" alt="Wind Vector" />
+          #if $period2.pm2_5_aqi.has_data
+          <img src="weekaqi.png" alt="Air Quality" />
+          #end if
           #if $Extras.has_key('optionalAccessories') and $period2.UV.has_data
           <img src="weekuv.png" alt="UV index" />
           #end if

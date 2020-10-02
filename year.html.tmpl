@@ -145,6 +145,18 @@
                 </td>
               </tr>
               #end if
+              #if $year.pm2_5.has_data
+              <tr>
+                <td class="stats_label">
+                  High AQI<br/>
+                  Low AQI
+                </td>
+                <td class="stats_data">
+                  $year.pm2_5_aqi.max at $year.pm2_5_aqi.maxtime<br/>
+                  $year.pm2_5_aqi.min at $year.pm2_5_aqi.mintime
+                </td>
+              </tr>
+              #end if
               #if $Extras.has_key('optionalAccessories') and $year.UV.has_data
               <tr>
                 <td class="stats_label">
@@ -230,6 +242,9 @@
           <img src="yearwinddir.png" alt="Hi Wind" />
           <img src="yearinside.png" alt="Inside" />
           <img src="yearwindvec.png" alt="Wind Vector" />
+	  #if $year.pm2_5_aqi.has_data
+	  <img src="yearaqi.png" alt="Air Quality" />
+	  #end if
           #if $Extras.has_key('optionalAccessories') and $year.UV.has_data
           <img src="yearuv.png" alt="UV Index" />
           #end if

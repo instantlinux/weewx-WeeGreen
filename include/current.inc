@@ -36,16 +36,22 @@
                 <td class="stats_label">Rain Rate</td>
                 <td class="stats_data">$current.rainRate</td>
               </tr>
-              <tr>
-                <td class="stats_label">Inside Temperature</td>
-                <td class="stats_data">$current.inTemp</td>
-              </tr>
               #if $day.extraTemp1.has_data
               <tr>
                 <td class="stats_label">Pond Temperature</td>
                 <td class="stats_data">$current.extraTemp1</td>
               </tr>
               #end if
+	      #if $day.pm2_5.has_data
+              <tr>
+                <td class="stats_label">PM2.5 Concentration</td>
+                <td class="stats_data">$current.pm2_5</td>
+              </tr>
+              <tr>
+                <td class="stats_label">AQI</td>
+                <td class="stats_data">$current.pm2_5_aqi</td>
+              </tr>
+	      #end if
               #if $Extras.has_key('optionalAccessories') and $day.UV.has_data
               <tr>
                 <td class="stats_label">UV</td>
@@ -64,6 +70,10 @@
                 <td class="stats_data">$current.radiation</td>
               </tr>
               #end if
+              <tr>
+                <td class="stats_label">Inside Temperature</td>
+                <td class="stats_data">$current.inTemp</td>
+              </tr>
             </tbody>
           </table>
         </div>

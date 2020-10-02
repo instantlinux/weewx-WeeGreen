@@ -187,39 +187,57 @@
 	</td>
       </tr>
       #end if
+      #if $period2.pm2_5.has_data
+      <tr>
+	<td class="stats_label">
+	  AQI Range
+	</td>
+	<td class="stats_data">
+	  $period1.pm2_5_aqi.max at $period1.pm2_5.maxtime<br/>
+	  $period1.pm2_5_aqi.min at $period1.pm2_5.mintime
+	</td>
+	<td class="stats_data">
+	  $period2.pm2_5_aqi.max at $period2.pm2_5.maxtime<br/>
+	  $period2.pm2_5_aqi.min at $period2.pm2_5.mintime
+	</td>
+      </tr>
+      #end if
       #if $Extras.has_key('optionalAccessories') and $period2.UV.has_data
       <tr>
 	<td class="stats_label">
-	  High UV<br/>
-	  Low UV
-	</td><td></td>
+	  High UV
+	</td>
 	<td class="stats_data">
-	  $period2.UV.max at $period2.UV.maxtime<br/>
-	  $period2.UV.min at $period2.UV.mintime
+	  $period1.UV.max at $period1.UV.maxtime
+	</td>
+	<td class="stats_data">
+	  $period2.UV.max at $period2.UV.maxtime
 	</td>
       </tr>
       #end if
       #if $Extras.has_key('optionalAccessories') and $period2.ET.has_data and $period2.ET.sum.raw >0.0
       <tr>
 	<td class="stats_label">
-	  High ET<br/>
-	  Low ET
-	</td><td></td>
+	  High ET
+	</td>
 	<td class="stats_data">
-	  $period2.ET.max at $period2.ET.maxtime<br/>
-	  $period2.ET.min at $period2.ET.mintime
+	  $period1.ET.max at $period1.ET.maxtime
+	</td>
+	<td class="stats_data">
+	  $period2.ET.max at $period2.ET.maxtime
 	</td>
       </tr>
       #end if
       #if $Extras.has_key('optionalAccessories') and $period2.radiation.has_data
       <tr>
 	<td class="stats_label">
-	  High Radiation<br/>
-	  Low Radiation
-	</td><td></td>
+	  High Radiation
+	</td>
 	<td class="stats_data">
-	  $period2.radiation.max at $period2.radiation.maxtime<br/>
-	  $period2.radiation.min at $period2.radiation.mintime
+	  $period1.radiation.max at $period1.radiation.maxtime
+	</td>
+	<td class="stats_data">
+	  $period2.radiation.max at $period2.radiation.maxtime
 	</td>
       </tr>
       #end if
