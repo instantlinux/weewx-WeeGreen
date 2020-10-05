@@ -42,16 +42,33 @@
                 <td class="stats_data">$current.extraTemp1</td>
               </tr>
               #end if
-	      #if $day.pm2_5.has_data
+              #if $Extras.has_key('optionalAccessories') and $day.pm2_5.has_data
+              #set pmdata = '%.2f, %.2f, %.2f %s' % ($current.pm1_0.raw, $current.pm2_5.raw, $current.pm10_0.raw, $unit.label.pm2_5)
+	      #if $current.pm2_5_aqi.raw > 300
+	        #set pmcolor = '581845'
+	      #else if $current.pm2_5_aqi.raw > 200
+	        #set pmcolor = 'F80000'
+	      #else if $current.pm2_5_aqi.raw > 150
+	        #set pmcolor = '900C3F'
+	      #else if $current.pm2_5_aqi.raw > 100
+	        #set pmcolor = 'F39C12'
+	      #else if $current.pm2_5_aqi.raw > 50
+	        #set pmcolor = 'F8F800'
+	      #end if
               <tr>
-                <td class="stats_label">PM2.5 Concentration</td>
-                <td class="stats_data">$current.pm2_5</td>
+                <td class="stats_label">PM1, 2.5, 10 Concentration</td>
+                <td class="stats_data">$pmdata</td>
               </tr>
               <tr>
                 <td class="stats_label">AQI</td>
-                <td class="stats_data">$current.pm2_5_aqi</td>
+                #if $current.pm2_5_aqi.raw >= 50
+                <td class="stats_data" bgcolor="#$pmcolor">
+                #else
+                <td>
+                #end if
+                $current.pm2_5_aqi</td>
               </tr>
-	      #end if
+              #end if
               #if $Extras.has_key('optionalAccessories') and $day.UV.has_data
               <tr>
                 <td class="stats_label">UV</td>

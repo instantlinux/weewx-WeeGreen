@@ -31,7 +31,7 @@
           <img src="monthwinddir.png" alt="Hi Wind" />
           <img src="monthinside.png" alt="Inside" />
           <img src="monthwindvec.png" alt="Wind Vector" />
-          #if $period2.pm2_5_aqi.has_data
+          #if $Extras.has_key('optionalAccessories') and $period2.pm2_5.has_data
           <img src="monthaqi.png" alt="Air Quality" />
           #end if
           #if $Extras.has_key('optionalAccessories') and $period2.UV.has_data

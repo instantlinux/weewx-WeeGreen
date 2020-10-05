@@ -187,7 +187,7 @@
 	</td>
       </tr>
       #end if
-      #if $period2.pm2_5.has_data
+      #if $Extras.has_key('optionalAccessories') and $period2.pm2_5.has_data
       <tr>
 	<td class="stats_label">
 	  AQI Range
