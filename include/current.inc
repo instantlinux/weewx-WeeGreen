@@ -45,13 +45,13 @@
               #if $Extras.has_key('optionalAccessories') and $day.pm2_5.has_data
               #set pmdata = '%.2f, %.2f, %.2f %s' % ($current.pm1_0.raw, $current.pm2_5.raw, $current.pm10_0.raw, $unit.label.pm2_5)
 	      #if $current.pm2_5_aqi.raw > 300
-	        #set pmcolor = '581845'
+	        #set pmcolor = '7E0023'
 	      #else if $current.pm2_5_aqi.raw > 200
-	        #set pmcolor = 'F80000'
+	        #set pmcolor = '8F3F97'
 	      #else if $current.pm2_5_aqi.raw > 150
-	        #set pmcolor = '900C3F'
+	        #set pmcolor = 'F80000'
 	      #else if $current.pm2_5_aqi.raw > 100
-	        #set pmcolor = 'F39C12'
+	        #set pmcolor = 'FF7E00'
 	      #else if $current.pm2_5_aqi.raw > 50
 	        #set pmcolor = 'F8F800'
 	      #end if
